@@ -1,9 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { doLogOut } from '../actions/auth.js'
 
-const Header = () => {
+const Header = ({ state, dispatch }) => {
     return (
-        <div>Header</div>
+        <div>
+            Header
+            <button onClick={ e =>{
+                e.preventDefault()
+                dispatch(doLogOut())
+            }}>Logout</button>
+        </div>
     )
 }
 
-export default Header
+const mapStateToProps = state => ({
+    state: state
+  })
+
+export default connect(mapStateToProps)(Header)

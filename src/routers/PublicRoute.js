@@ -8,7 +8,6 @@ const PublicRoute = ({
   ...rest
 }) => (
   <div>
-    {console.log(isAuthenticated)}
     <Route
       {...rest}
       render={ (props) =>

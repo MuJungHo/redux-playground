@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const DashBoardPage = (state) => {
-  console.log(state)
+const DashBoardPage = ({state}) => {
   return (
-    <div>DashBoardPage</div>
+    <div>
+      DashBoardPage
+    </div>
   )
 }
 

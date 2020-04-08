@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { doLogin } from '../actions'
+import { doLogin } from '../actions/auth'
 
 const LoginPage = ({ state, dispatch }) => {
   return (
@@ -8,7 +8,7 @@ const LoginPage = ({ state, dispatch }) => {
       <button onClick={ e =>{
         e.preventDefault()
         dispatch(doLogin({email: 'root', passWord: '123456'}))
-      }}>123</button>
+      }}>Login</button>
     </form>
   )
 }
