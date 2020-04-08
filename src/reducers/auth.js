@@ -1,17 +1,24 @@
 const defaultState = {
-  token: ''
+  id: '',
+  displayName: '',
+  email: '',
+  projectDID: '',
+  role: 0,
+  permission: [],
+  createUnixTimeStamp: 0,
+  lastModifiedUnixTimeStamp: 0,
+  lastLoginUnixTimeStamp: 0,
+  userToken: ''
 }
 
 const auth = (state = defaultState, action) => {
   switch (action.type) {
-    case 'LOG_IN':
-      return {
-        token: 'isLogin'
-      }
-    case 'LOG_OUT':
-      return defaultState
+    case 'LOGIN_SUCCESS':
+      return {...action}
+    case 'LOGIN_FAILED':
+      return state
     default:
-      return defaultState
+      return state
   }
 }
 
