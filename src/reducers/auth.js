@@ -14,7 +14,7 @@ const defaultState = {
 const auth = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
-      return {...action}
+      return {...action.user}
     case 'LOGIN_FAILED':
       return state
     default:

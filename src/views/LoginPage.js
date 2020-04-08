@@ -5,7 +5,6 @@ import { doLogin } from '../actions'
 const LoginPage = ({ state, dispatch }) => {
   return (
     <form>
-      {console.log(state.auth)}
       <button onClick={ e =>{
         e.preventDefault()
         dispatch(doLogin({email: 'root', passWord: '123456'}))
