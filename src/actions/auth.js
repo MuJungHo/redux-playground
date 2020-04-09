@@ -21,7 +21,7 @@ export const doLogOut = () => {
   }
 }
 
-export const doLogin = ({ email, passWord }) => async (dispatch) => {
+export const doLogin = ({ email, passWord }) => async dispatch => {
 
   dispatch(requestStart())
 
