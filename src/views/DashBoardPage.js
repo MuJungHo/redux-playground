@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 const DashBoardPage = ({state}) => {
   return (
     <div>
-      DashBoardPage
     </div>
   )
 }

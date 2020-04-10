@@ -14,7 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 export default function Sidebar (props) {
 
-  const { routes, path } = props
+  const { routes } = props
 
   const [open, setOpen] = React.useState(false)
 

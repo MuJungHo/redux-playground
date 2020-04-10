@@ -19,10 +19,13 @@ const PrivateRoute = ({
     mainPanel: {
       position: 'relative',
       flexGrow: 1,
-      height: '100%'
+      height: '100%',
+      backgroundColor: 'rgba(0, 119, 214, 0.15)'
     },
     content: {
-      padding: '10px'
+      padding: '10px',
+      height: 'calc(100vh - 64px)',
+      boxSizing: 'border-box'
     }
   }))
   
@@ -32,7 +35,6 @@ const PrivateRoute = ({
     <div className={classes.flex}>
       <Sidebar 
         routes={routes}
-        path={rest.path}
         {...rest}
       />
       <div className={classes.mainPanel}>
