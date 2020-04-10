@@ -32,6 +32,7 @@ const PrivateRoute = ({
     <div className={classes.flex}>
       <Sidebar 
         routes={routes}
+        path={rest.path}
         {...rest}
       />
       <div className={classes.mainPanel}>

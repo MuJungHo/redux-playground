@@ -14,7 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 export default function Sidebar (props) {
 
-  const { routes } = props
+  const { routes, path } = props
 
   const [open, setOpen] = React.useState(false)
 
@@ -24,6 +24,10 @@ export default function Sidebar (props) {
 
   const handleDrawerClose = () => {
     setOpen(false)
+  }
+
+  const activeRoute = (routeName) => {
+    return window.location.href.indexOf(routeName) > -1
   }
 
   const drawerWidth = 240
@@ -44,7 +48,7 @@ export default function Sidebar (props) {
     drawer: {
       width: drawerWidth,
       flexShrink: 0,
-      whiteSpace: 'nowrap',
+      whiteSpace: 'nowrap'
     },
     drawerOpen: {
       width: drawerWidth,
@@ -52,7 +56,8 @@ export default function Sidebar (props) {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
       }),
-      overflowX: 'hidden'
+      overflowX: 'hidden',
+      backgroundColor: '#212240'
     },
     drawerClose: {
       transition: theme.transitions.create('width', {
@@ -60,7 +65,31 @@ export default function Sidebar (props) {
         duration: theme.transitions.duration.leavingScreen,
       }),
       overflowX: 'hidden',
-      width: theme.spacing(7) + 1
+      width: '86px',
+      backgroundColor: '#212240'
+    },
+    listItem: {
+      margin: '10px 15px 0',
+      '& svg': {
+        fill: 'rgba(255, 255, 255, 0.8)'
+      },
+      width: 'auto'
+    },
+    listItemActive: {
+      backgroundColor: '#00acc1',
+      '& svg': {
+        fill: '#fff'
+      }
+    },
+    navLink: {
+      textDecoration: 'none',
+      color: 'rgba(255, 255, 255, 0.8)'
+    },
+    navLinkActive: {
+      color: '#fff'
+    },
+    icon: {
+      fill: 'rgba(255, 255, 255, 0.8)'
     }
   }))
 
@@ -72,10 +101,17 @@ export default function Sidebar (props) {
         return (
           <NavLink
             to={prop.path}
-            activeClassName="active"
             key={key}
+            className={clsx(classes.navLink, {
+              [classes.navLinkActive]: activeRoute(prop.path)
+            })}
           >
-            <ListItem button>
+            <ListItem 
+              button
+              className={clsx(classes.listItem, {
+                [classes.listItemActive]: activeRoute(prop.path)
+              })}
+            >
               <prop.icon />
               <ListItemText primary={prop.name} className={classes.menuButton}/>
             </ListItem>
@@ -87,13 +123,13 @@ export default function Sidebar (props) {
 
   var openButton = (
     <IconButton onClick={handleDrawerOpen}>
-      <MenuIcon />
+      <MenuIcon className={classes.icon}/>
     </IconButton>
   )
 
   var closeButton = (
     <IconButton onClick={handleDrawerClose}>
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className={classes.icon}/>
     </IconButton>
   )
 
