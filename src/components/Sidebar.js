@@ -1,18 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import clsx from 'clsx';
+import { NavLink } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Icon from "@material-ui/core/Icon";
 
 export default function Sidebar (props) {
 
@@ -21,11 +19,11 @@ export default function Sidebar (props) {
   const [open, setOpen] = React.useState(false)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
+    setOpen(true)
   }
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    setOpen(false)
   }
 
   const drawerWidth = 240
