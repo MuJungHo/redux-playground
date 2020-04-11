@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 
+import { FormattedMessage } from 'react-intl';
+
 import { doLogOut } from '../actions/auth'
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +46,7 @@ const Navbar = ({ path, state, dispatch }) => {
     const navbarTitle = () => {
         switch (path) {
             case '/dashboard' :
-                return 'DashBoard'
+                return <FormattedMessage id="learn" />
             case '/user':
                 return 'User Profile'
             default:
