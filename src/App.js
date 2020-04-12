@@ -1,16 +1,14 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import configureStore from './configureStore'
+import ConfigureStore from './ConfigureStore'
 import AppRouter from './routers/AppRouter.js'
-import { IntlProvider } from 'react-intl'
-import en from './i18n/en.js'
-import zh from './i18n/zh.js'
+import ConnectedIntlProvider from './ConnectedIntlProvider'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import "./style/normalize.css"
 import "./style/font.css"
 
-export const store = configureStore()
+export const store = ConfigureStore()
 
 const theme = createMuiTheme({
   typography: {
@@ -22,13 +20,13 @@ const theme = createMuiTheme({
 })
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <IntlProvider locale='en' messages={zh}>
-      <Provider store={store}>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <ConnectedIntlProvider >
         <AppRouter />
-      </Provider>
-    </IntlProvider>
-  </ThemeProvider>
+      </ConnectedIntlProvider>
+    </ThemeProvider>
+  </Provider>
 )
 
 export default App

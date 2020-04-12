@@ -1,2 +1,6 @@
-const en = { 'learn': 'FINALLY' };
-export default en;
+const en = { 
+    'dashboard': 'Dashboard',
+    'logout': 'Log out',
+    'user': 'User'
+}
+export default en

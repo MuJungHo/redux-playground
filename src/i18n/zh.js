@@ -1,2 +1,6 @@
-const zh_TW = { 'learn': '學習' };
-export default zh_TW;
+const zh_TW = { 
+    'dashboard': '首頁',
+    'logout': '登出',
+    'user': '使用者'
+}
+export default zh_TW

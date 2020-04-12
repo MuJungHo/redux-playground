@@ -46,9 +46,9 @@ const Navbar = ({ path, state, dispatch }) => {
     const navbarTitle = () => {
         switch (path) {
             case '/dashboard' :
-                return <FormattedMessage id="learn" />
+                return <FormattedMessage id="dashboard"/>
             case '/user':
-                return 'User Profile'
+                return <FormattedMessage id="user"/>
             default:
                 return 'NotFound'
         }
@@ -70,10 +70,10 @@ const Navbar = ({ path, state, dispatch }) => {
                 horizontal: 'center',
             }}
         >
-            <MenuItem onClick={handleMenuClose} component={Link} to="/user">user profile</MenuItem>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/user"><FormattedMessage id="user"/></MenuItem>
             <MenuItem 
                 onClick={handleLogOutClick}
-            >logout</MenuItem>
+            ><FormattedMessage id="logout"/></MenuItem>
         </Menu>
       );
 
