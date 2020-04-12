@@ -1,6 +1,6 @@
 const en = { 
     'dashboard': 'Dashboard',
     'logout': 'Log out',
-    'user': 'User'
+    'userProfile': 'User Profile'
 }
 export default en
