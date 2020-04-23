@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import ConfigureStore from './ConfigureStore'
 import AppRouter from './routers/AppRouter.js'
-import ConnectedIntlProvider from './ConnectedIntlProvider'
+import ConfigureStore from './configureStore.js'
+import ConnectedIntlProvider from './configureIntlProvider.js'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/styles'
 import "./style/normalize.css"
