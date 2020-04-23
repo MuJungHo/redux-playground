@@ -1,9 +1,11 @@
 import React from "react";
 import DashBoardPage from '../views/DashBoardPage.js'
 import UserPage from '../views/UserPage.js'
+import SettingPage from '../views/SettingPage.js'
 
-import Dashboard from "@material-ui/icons/Dashboard";
-import Person from "@material-ui/icons/Person";
+import Dashboard from "@material-ui/icons/Dashboard"
+import Person from "@material-ui/icons/Person"
+import Setting from "@material-ui/icons/Settings"
 
 import { FormattedMessage } from 'react-intl';
 
@@ -19,7 +21,13 @@ const routes = [
     component: UserPage,
     name: <FormattedMessage id="userProfile"/>,
     icon: Person
-  }  
+  },
+  {
+    path: '/setting',
+    component: SettingPage,
+    name: <FormattedMessage id="settings"/>,
+    icon: Setting
+  }
 ]
 
 export default routes

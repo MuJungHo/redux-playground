@@ -49,6 +49,8 @@ const Navbar = ({ path, state, dispatch }) => {
                 return <FormattedMessage id="dashboard"/>
             case '/user':
                 return <FormattedMessage id="userProfile"/>
+            case '/setting':
+                return <FormattedMessage id="settings"/>
             default:
                 return 'NotFound'
         }
