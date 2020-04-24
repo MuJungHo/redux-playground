@@ -52,21 +52,21 @@ const Sidebar = (props) => {
     },
     drawerOpen: {
       width: drawerWidth,
-      transition: theme.transitions.create('width', {
+      backgroundColor: state.theme.menuBackgroundColor,
+      transition: theme.transitions.create(['width','background-color'], {
         easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.enteringScreen,
+        duration: theme.transitions.duration.standard
       }),
-      overflowX: 'hidden',
-      backgroundColor: state.theme.menuBackgroundColor
+      overflowX: 'hidden'
     },
     drawerClose: {
-      transition: theme.transitions.create('width', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      overflowX: 'hidden',
       width: '86px',
-      backgroundColor: state.theme.menuBackgroundColor
+      backgroundColor: state.theme.menuBackgroundColor,
+      transition: theme.transitions.create(['width','background-color'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.standard
+      }),
+      overflowX: 'hidden'
     },
     listItem: {
       margin: '10px 15px 0',
