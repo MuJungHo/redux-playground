@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { connect } from 'react-redux'
 import clsx from 'clsx';
 import { NavLink } from "react-router-dom";
 
@@ -12,9 +12,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
-export default function Sidebar (props) {
+const Sidebar = (props) => {
 
-  const { routes } = props
+  const { routes, state } = props
 
   const [open, setOpen] = React.useState(false)
 
@@ -57,7 +57,7 @@ export default function Sidebar (props) {
         duration: theme.transitions.duration.enteringScreen,
       }),
       overflowX: 'hidden',
-      backgroundColor: '#212240'
+      backgroundColor: state.theme.menuBackgroundColor
     },
     drawerClose: {
       transition: theme.transitions.create('width', {
@@ -66,7 +66,7 @@ export default function Sidebar (props) {
       }),
       overflowX: 'hidden',
       width: '86px',
-      backgroundColor: '#212240'
+      backgroundColor: state.theme.menuBackgroundColor
     },
     listItem: {
       margin: '10px 15px 0',
@@ -160,6 +160,8 @@ export default function Sidebar (props) {
   )
 }
 
-Sidebar.propTypes = {
-  routes: PropTypes.arrayOf(PropTypes.object)
-}
+const mapStateToProps = (state) => ({
+  state: state
+})
+
+export default connect(mapStateToProps)(Sidebar)
