@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 import clsx from 'clsx';
 import { NavLink } from "react-router-dom";
+import { closeDrawer, openDrawer } from '../actions/drawer'
 
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -14,16 +15,16 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 const Sidebar = (props) => {
 
-  const { routes, state } = props
+  const { routes, state, dispatch } = props
 
-  const [open, setOpen] = React.useState(false)
+  const open = state.drawer.isOpen
 
   const handleDrawerOpen = () => {
-    setOpen(true)
+    dispatch(openDrawer())
   }
 
   const handleDrawerClose = () => {
-    setOpen(false)
+    dispatch(closeDrawer())
   }
 
   const activeRoute = (routeName) => {
