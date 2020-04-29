@@ -1,6 +1,7 @@
 const zh_TW = { 
     'dashboard': '首頁',
     'logout': '登出',
+    'project': '專案',
     'settings': '設定',
     'userProfile': '使用者檔案'
 }

@@ -4,11 +4,13 @@ import loading from './loading'
 import locale from './locale'
 import theme from './theme'
 import drawer from './drawer'
+import project from './project'
 
 export default combineReducers({
   auth,
   loading,
   locale,
   theme,
-  drawer
+  drawer,
+  project
 })
