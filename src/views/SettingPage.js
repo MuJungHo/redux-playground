@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Radio from '@material-ui/core/Radio'
 import { withStyles } from '@material-ui/core/styles';
 import { green, blue, orange } from '@material-ui/core/colors';
@@ -36,29 +36,30 @@ const OrangeRadio = withStyles({
     checked: {},
 })((props) => <Radio color="default" {...props} />)
 
-const SettingPage = (props) => {
+const SettingPage = () => {
 
-    const { dispatch, state } = props
+    const theme = useSelector(state => state.theme)
 
-    const handleChange = e => {
-        dispatch(setMenuBackgroundColor(e.target.value))
-    }
+    const dispatch = useDispatch()
+
+    const handleChange = e => dispatch(setMenuBackgroundColor(e.target.value))
+
     return (
         <div>
             <OrangeRadio
-                checked={state.theme.menuBackgroundColor === orange[700]}
+                checked={theme.menuBackgroundColor === orange[700]}
                 onChange={handleChange}
                 value={orange[700]}
                 name="Orange"
             />
             <BlueRadio
-                checked={state.theme.menuBackgroundColor === blue[700]}
+                checked={theme.menuBackgroundColor === blue[700]}
                 onChange={handleChange}
                 value={blue[700]}
                 name="Blue"
             />
             <GreenRadio
-                checked={state.theme.menuBackgroundColor ===  green[700]}
+                checked={theme.menuBackgroundColor ===  green[700]}
                 onChange={handleChange}
                 value={green[700]}
                 name="Green"
@@ -67,8 +68,4 @@ const SettingPage = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    state: state
-  })
-  
-  export default connect(mapStateToProps)(SettingPage)
+export default SettingPage

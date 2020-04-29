@@ -1,11 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { doLogin } from '../actions/auth'
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const LoginPage = ({ state, dispatch }) => {
+const LoginPage = () => {
 
   const classes = useStyles();
 
@@ -36,10 +36,12 @@ const LoginPage = ({ state, dispatch }) => {
 
   const [passWord, setPassword] = React.useState('')
 
-  const [locale, selectLocale] = React.useState('en');
+  const [locale, selectLocale] = React.useState('en')
 
-  const handleChange = (event) => {
-    selectLocale(event.target.value);
+  const dispatch = useDispatch()
+
+  const handleChange = event => {
+    selectLocale(event.target.value)
   };
 
   return (
@@ -101,10 +103,4 @@ const LoginPage = ({ state, dispatch }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  state: state
-})
-
-export default connect(
-  mapStateToProps
-)(LoginPage)
+export default LoginPage
