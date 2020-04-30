@@ -40,9 +40,10 @@ export const doLogin = ({ email, passWord, locale }) => async dispatch => {
     } else {
       dispatch(loginFailed())
     }
-    
-    dispatch(requestFinish())
   } catch (e) {
     console.error(e)
   }
+    
+  dispatch(requestFinish())
+  
 }

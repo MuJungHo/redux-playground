@@ -30,11 +30,12 @@ export const doGetProjects = () => async dispatch => {
     } else {
       dispatch(getProjectsFailed())
     }
-    dispatch(requestFinish())
-
   } catch (e) {
     console.error(e)
   }
+
+  dispatch(requestFinish())
+
 }
 
 export const doCreateProject = ({ displayName, memo }) => async dispatch => {
@@ -48,9 +49,10 @@ export const doCreateProject = ({ displayName, memo }) => async dispatch => {
     } else {
       dispatch(createProjectFailed())
     }
-    dispatch(requestFinish())
-
   } catch (e) {
     console.error(e)
   }
+  
+  dispatch(requestFinish())
+
 }
