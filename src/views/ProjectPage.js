@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { doGetProjects } from '../actions/project.js'
 
@@ -9,13 +9,10 @@ const Project = () => {
 
   useEffect(() => {
     dispatch(doGetProjects())
-  }, [])
+  }, [dispatch])
 
   return (
-      <div>
-        {
-    console.log(project)}
-      </div>
+  <div>{console.log(project)}</div>
   )
 }
 

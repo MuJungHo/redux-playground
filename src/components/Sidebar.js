@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import clsx from 'clsx';
 import { NavLink } from "react-router-dom";
 import { closeDrawer, openDrawer } from '../actions/drawer'
@@ -13,11 +13,11 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
-const Sidebar = (props) => {
+const Sidebar = ({ routes }) => {
+  const open = useSelector(state => state.drawer.isOpen)
+  const menuBackgroundColor = useSelector(state => state.theme.menuBackgroundColor)
 
-  const { routes, state, dispatch } = props
-
-  const open = state.drawer.isOpen
+  const dispatch = useDispatch()
 
   const handleDrawerOpen = () => {
     dispatch(openDrawer())
@@ -53,7 +53,7 @@ const Sidebar = (props) => {
     },
     drawerOpen: {
       width: drawerWidth,
-      backgroundColor: state.theme.menuBackgroundColor,
+      backgroundColor: menuBackgroundColor,
       transition: theme.transitions.create(['width','background-color'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.standard
@@ -62,7 +62,7 @@ const Sidebar = (props) => {
     },
     drawerClose: {
       width: '86px',
-      backgroundColor: state.theme.menuBackgroundColor,
+      backgroundColor: menuBackgroundColor,
       transition: theme.transitions.create(['width','background-color'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.standard
@@ -161,8 +161,4 @@ const Sidebar = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  state: state
-})
-
-export default connect(mapStateToProps)(Sidebar)
+export default Sidebar

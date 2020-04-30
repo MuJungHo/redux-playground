@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { doLogin } from '../actions/auth'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
