@@ -26,7 +26,8 @@ export const getProjectById = async projectDID => {
     console.error(e)
   }
 }
-export const deleteProject = async projectDID => {
+
+export const deleteProjectApi = async projectDID => {
   try {
     const response = await instance.post('/project/deleteProject', { projectDID })
     return response.data

@@ -1,4 +1,4 @@
-import { createProjectApi, getProjectsApi } from '../apis/project.js'
+import { createProjectApi, getProjectsApi, deleteProjectApi } from '../apis/project.js'
 import { requestFinish, requestStart } from './loading.js'
 
 const createProjectSuccess = project => ({
@@ -8,6 +8,15 @@ const createProjectSuccess = project => ({
 
 const createProjectFailed = () => ({
   type: 'CREATE_PROJECT_Failed'
+})
+
+const deleteProjectSuccess = projectDID => ({
+  type: 'DELETE_PROJECT_SUCCESS',
+  projectDID
+})
+
+const deleteProjectFailed = () => ({
+  type: 'DELETE_PROJECT_Failed'
 })
 
 const getProjectsSuccess = projects => ({
@@ -48,6 +57,25 @@ export const doCreateProject = ({ displayName, memo }) => async dispatch => {
       dispatch(createProjectSuccess(data.project))
     } else {
       dispatch(createProjectFailed())
+    }
+  } catch (e) {
+    console.error(e)
+  }
+  
+  dispatch(requestFinish())
+
+}
+
+export const doDeleteProject = ({ projectDID }) => async dispatch => {
+
+  dispatch(requestStart())
+  
+  try {
+    const data = await deleteProjectApi(projectDID)
+    if (data.message === 'SUCCESS') {
+      dispatch(deleteProjectSuccess(data.userDID))
+    } else {
+      dispatch(deleteProjectFailed())
     }
   } catch (e) {
     console.error(e)
