@@ -35,3 +35,12 @@ export const deleteProjectApi = async projectDID => {
     console.error(e)
   }
 }
+
+export const editProjectApi = async ({ projectDID, displayName, memo }) => {
+  try {
+    const response = await instance.post('/project/updateProject', { projectDID, displayName, memo })
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}

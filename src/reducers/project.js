@@ -38,6 +38,14 @@ const project = (state = defaultState, action) => {
     }
     case 'DELETE_PROJECT_FAILED':
       return state
+    case 'EDIT_PROJECT_SUCCESS': {
+      return {
+        projectList: state.projectList,
+        projects: {...state.projects, [action.project.id]: action.project}
+      }
+    }
+    case 'EDIT_PROJECT_FAILED':
+      return state
     default:
       return state
   }

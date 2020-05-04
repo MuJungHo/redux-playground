@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { doDeleteProject } from '../actions/project.js'
+import { doDeleteProject, doEditProject } from '../actions/project.js'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
@@ -21,6 +21,10 @@ export default ({ id }) => {
 
   const [isDeleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
 
+  const [displayName, setDisplayName] = React.useState(projects[id].displayName)
+
+  const [memo, setMemo] = React.useState(projects[id].memo)
+
   const handleEditProjectClick = e => {
     setEditDialogOpen(true)
   }
@@ -31,6 +35,7 @@ export default ({ id }) => {
 
   const handleEditProject = e => {
     e.preventDefault()
+    dispatch(doEditProject({ projectDID: id, memo, displayName }))
     setEditDialogOpen(false)
   }
 
@@ -43,7 +48,7 @@ export default ({ id }) => {
   }
 
   const handleDeleteProject = e => {
-    dispatch(doDeleteProject({projectDID: id}))
+    dispatch(doDeleteProject({ projectDID: id }))
     setDeleteDialogOpen(false)
   }
 
@@ -67,14 +72,16 @@ export default ({ id }) => {
               margin="dense"
               label="Name"
               fullWidth
-              value={projects[id].displayName}
+              value={displayName}
+              onChange={e => setDisplayName(e.target.value)}
             />
             <TextField
               required
               margin="dense"
               label="Description"
               fullWidth
-              value={projects[id].memo}
+              value={memo}
+              onChange={e => setMemo(e.target.value)}
             />
           </DialogContent>
           <DialogActions>
