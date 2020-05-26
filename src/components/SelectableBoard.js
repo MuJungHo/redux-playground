@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
 import { makeStyles } from "@material-ui/core/styles"
 
-export default () => {
+export default (props) => {
+    
+    const { getSelectArea } = props
 
     var position = { top: 0, left: 0 }  
 
@@ -14,13 +16,11 @@ export default () => {
         },
         helper: {
             position: 'absolute',
-            border: '1px dashed #000',
-            display: selecting ? 'block' : 'none'
+            border: '1px dashed #000'
         }
     }))
 
 
-    const [selecting, setSelecting] = React.useState(false)
 
     const board = useRef()
 
@@ -31,14 +31,21 @@ export default () => {
     const handleMouseDown = e => {
         const { x, y } = board.current.getBoundingClientRect()
         position = { top: e.clientY - y, left: e.clientX - x }
-        setSelecting(true)
         board.current.addEventListener('mousemove', handleMouseMove)
         window.addEventListener('mouseup', handleMouseUp)
     }
     const handleMouseUp = () => {
-        setSelecting(false)
+        const { x, y } = board.current.getBoundingClientRect()
         window.removeEventListener('mouseup', handleMouseUp)
         board.current.removeEventListener('mousemove', handleMouseMove)
+
+        var left = Number(helper.current.style.left.split('px')[0])
+        var top = Number(helper.current.style.top.split('px')[0])
+        var width = Number(helper.current.style.width.split('px')[0])
+        var height = Number(helper.current.style.height.split('px')[0])
+
+        getSelectArea({ left, top, width, height , x, y })
+
         helper.current.style = null
     }
     const handleMouseMove = e => {
