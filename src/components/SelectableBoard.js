@@ -20,8 +20,6 @@ export default (props) => {
         }
     }))
 
-
-
     const board = useRef()
 
     const helper = useRef()

@@ -1,6 +1,6 @@
 import React from 'react'
 import SelectableBoard from '../components/SelectableBoard'
-import User from '../components/User'
+import GridContainer from '../components/GridContainer'
 import { makeStyles } from "@material-ui/core/styles"
 
 const UserPage = () => {
@@ -12,11 +12,11 @@ const UserPage = () => {
     }))
 
     const users = [
-        { name: 'user1' },
-        { name: 'user2' },
-        { name: 'user3' },
-        { name: 'user4' },
-        { name: 'user5' }
+        { id: '1', name: 'user1' },
+        { id: '2', name: 'user2' },
+        { id: '3', name: 'user3' },
+        { id: '4', name: 'user4' },
+        { id: '5', name: 'user5' },
     ]
 
     const [selectedArea, setWrap] = React.useState({ left: 0, top: 0, width: 0, height: 0, x: 0, y: 0 })
@@ -26,9 +26,7 @@ const UserPage = () => {
     return (
         <div className={classes.userPage}>
             <SelectableBoard getSelectArea={setWrap}></SelectableBoard>
-            {
-                users.map(user => <User key={user.name} selectedArea={selectedArea}/>)
-            }
+            <GridContainer selectedArea={selectedArea} items={users}></GridContainer>
         </div>
     )
 }
