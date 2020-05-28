@@ -39,7 +39,6 @@ const Navbar = ({ path, state, dispatch }) => {
         setAnchorEl(null)
     }
     const handleLogOutClick = () => {
-        dispatch(doLogOut())
         handleMenuClose()
     }
 
@@ -51,6 +50,8 @@ const Navbar = ({ path, state, dispatch }) => {
                 return <FormattedMessage id="userProfile"/>
             case '/project':
                 return <FormattedMessage id="project"/>
+            case '/media':
+                return <FormattedMessage id="media"/>
             case '/setting':
                 return <FormattedMessage id="settings"/>
             default:

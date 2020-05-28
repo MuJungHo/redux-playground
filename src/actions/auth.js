@@ -17,7 +17,7 @@ const loginFailed = () => ({
 
 export const doLogOut = () => {
 
-  localStorage.removeItem('userToken')
+  // localStorage.removeItem('userToken')
   localStorage.removeItem('locale')
   return {
     type: 'USER_LOGOUT',

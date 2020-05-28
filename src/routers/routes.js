@@ -2,12 +2,12 @@ import React from "react";
 import DashBoardPage from '../views/DashBoardPage.js'
 import UserPage from '../views/UserPage.js'
 import SettingPage from '../views/SettingPage.js'
-import ProjectPage from '../views/ProjectPage.js'
+import MediaPage from '../views/MediaPage.js'
 
 import Dashboard from "@material-ui/icons/Dashboard"
 import Person from "@material-ui/icons/Person"
 import Setting from "@material-ui/icons/Settings"
-import Project from "@material-ui/icons/Code"
+import Media from "@material-ui/icons/PermMedia"
 
 import { FormattedMessage } from 'react-intl';
 
@@ -25,16 +25,16 @@ const routes = [
     icon: Person
   },
   {
-    path: '/project',
-    component: ProjectPage,
-    name: <FormattedMessage id="project"/>,
-    icon: Project
-  },
-  {
     path: '/setting',
     component: SettingPage,
     name: <FormattedMessage id="settings"/>,
     icon: Setting
+  },
+  {
+    path: '/media',
+    component: MediaPage,
+    name: <FormattedMessage id="media"/>,
+    icon: Media
   }
 ]
 

@@ -8,7 +8,7 @@ const defaultState = {
   createUnixTimeStamp: 0,
   lastModifiedUnixTimeStamp: 0,
   lastLoginUnixTimeStamp: 0,
-  userToken: localStorage.getItem('userToken') || ''
+  userToken: 'token'
 }
 
 const auth = (state = defaultState, action) => {
