@@ -5,6 +5,7 @@ import locale from './locale'
 import theme from './theme'
 import drawer from './drawer'
 import project from './project'
+import media from './media'
 
 export default combineReducers({
   auth,
@@ -12,5 +13,6 @@ export default combineReducers({
   locale,
   theme,
   drawer,
-  project
+  project,
+  media
 })

@@ -6,9 +6,9 @@ export default ({ selectedArea, items }) => {
         <div>
             {
                 items
-                .map(item => 
+                .map((item, index) => 
                     <GridItem 
-                        key={item.id}
+                        key={index}
                         item={item}
                         selectedArea={selectedArea}
                     />

@@ -14,8 +14,6 @@ import MailIcon from '@material-ui/icons/Mail';
 
 import { FormattedMessage } from 'react-intl';
 
-import { doLogOut } from '../actions/auth'
-
 const useStyles = makeStyles((theme) => ({
     grow: {
       flexGrow: 1,
